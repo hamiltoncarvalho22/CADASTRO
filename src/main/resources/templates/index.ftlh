@@ -8,7 +8,7 @@
      rel="stylesheet">
 </head>
 <body>
-
+        <#include "navegar.ftlh" />
     <ul>
       <li><a href="/ExibirContados">Cadastrar Contados</a></li>
       <li><a href="/ListarContados">Listar Contados</a></li>

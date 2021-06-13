@@ -4,11 +4,14 @@ package com.example.CADASTRO.model;
 
 import lombok.Data;
 import java.util.Date;
-import java.util.Objects;
-import org.springframework.format.annotation.DateTimeFormat;
 
+
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "contato")
 @Data
 public class Contato {
 
@@ -38,6 +41,5 @@ public class Contato {
                 '}';
     }
 
-    public Object getnome() {
-    }
+
 }

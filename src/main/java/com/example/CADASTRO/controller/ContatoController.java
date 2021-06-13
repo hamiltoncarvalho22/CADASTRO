@@ -1,19 +1,20 @@
 package com.example.CADASTRO.controller;
 
 import com.example.CADASTRO.model.Contato;
+import com.example.CADASTRO.repository.ContatoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.text.AttributedString;
-import java.util.ArrayList;
-import javax.persistence.EntityManager;
-import java.text.AttributedString;
 
 @Controller
 class ContatoController {
 
-    private final list<Contato> contatos = new ArrayList<Contato>();
+    private ContatoRepository contatos;
+    public ContatoController(ContatoRepository Contatos)   {
+        this.contatos = contatos;
+    }
 
     @GetMapping("/exibirContato")
     public String exibirForm(Contato contato) {
