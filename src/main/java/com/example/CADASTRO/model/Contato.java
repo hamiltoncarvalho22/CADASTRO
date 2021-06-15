@@ -7,6 +7,7 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Entity
@@ -18,8 +19,11 @@ public class Contato {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotEmpty(message = "Campo Obrigatório")
     private String nome;
+
     private String cpf;
+
     private LocalDate dataNascimento;
 
 
