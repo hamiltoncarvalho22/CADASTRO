@@ -10,7 +10,7 @@
 <body>
     <#include "navegar.ftlh" />
             <div class="container col-sm-12 col-md-6 col-mdoffset-2">
-                <form action="/salvarContado" th:object=${contado} method="post">
+                <form action="/salvarContato" th:object=${contato} method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label> <input type="text" th:field="*{nome}"
                             class="form-control" id="nome" placeholder="Nome do contato">

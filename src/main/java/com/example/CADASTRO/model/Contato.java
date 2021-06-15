@@ -3,12 +3,11 @@ package com.example.CADASTRO.model;
 
 
 import lombok.Data;
+
+import java.time.LocalDate;
 import java.util.Date;
-
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "contato")
@@ -16,13 +15,13 @@ import javax.persistence.Table;
 public class Contato {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String nome;
-
     private String cpf;
+    private LocalDate dataNascimento;
 
-    private final ThreadLocal<Date> datanascimento = new ThreadLocal<Date>();
 
     @Override
     public boolean equals(Object o) {
@@ -36,7 +35,7 @@ public class Contato {
     public String toString() {
         return "Contato{" +
                 "nome='" + nome + '\'' +
-                ", datanascimento=" + datanascimento +
+                ", dataNascimento=" + dataNascimento +
                 ", cpf='" + cpf + '\'' +
                 '}';
     }

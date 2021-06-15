@@ -15,7 +15,7 @@
                 <th>nome</th>
                 <th>CPF</th>
             </tr>
-            <tr th:each="cont : ${lista}">
+            <tr th:each="cont : ${list}">
                 <td th:text="${cont.nome}"></td>
                 <td th:text="${cont.CPF}"></td>
                 <td><a th:href="@{/editarContato(nome=${cont.nome})}">Editar</a>&nbsp;&nbsp;

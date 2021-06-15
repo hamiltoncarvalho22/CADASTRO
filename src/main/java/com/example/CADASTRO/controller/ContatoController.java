@@ -7,16 +7,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.text.AttributedString;
+import java.util.List;
 
 @Controller
-class ContatoController {
+class ContatoController<Lista> {
 
     private ContatoRepository contatos;
     public ContatoController(ContatoRepository Contatos)   {
         this.contatos = contatos;
     }
 
-    @GetMapping("/exibirContato")
+    @GetMapping("/exibirContatos")
     public String exibirForm(Contato contato) {
         return "contatos-form";
     }
@@ -30,10 +31,12 @@ class ContatoController {
 
     @GetMapping("/ListarContatos")
     public String listarContatos(Model model);{
+        Lista<Contato> contato = contatos.findAll();
         AttributedString model;
-        model.addAttribute("Lista",contatos);
+        model.addAttribute("listarContatos", contatos);
     return"contatos-list";
     }
+
     @GetMapping("/removerContato")
     public String removerContato(String nome){
         Contato contatoParaRemover = null;
@@ -48,7 +51,7 @@ class ContatoController {
         return "redirect:/listarContatos";
     }
     @GetMapping("/editarContato")
-    public String editarContatos(String nome, Model model){
+    public String editarContato(String nome, Model model){
         Contato contatoParaEditar = null;
         for(Contato cont : this.contatos){
             if(cont.getnome().equals(nome)) {
